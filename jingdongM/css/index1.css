@@ -25,7 +25,7 @@
 
         最大宽度是不能继承的
     */
-    background-color: #e92322;
+    background-color: rgba(233, 35, 34, 0);
     
 
 }
@@ -183,18 +183,19 @@
     
     color:#666;
 }
-.jd_pTip> h3{
+.jd_pTip > h3{
     position: relative;
     padding-left:30px;
 }
-.jd_pTip> h3::before{
+.jd_pTip > h3::before{
     content:'';
     position: absolute;
-    top:9px;
-    left:-8px;
+    top:10px;
+    left:23px;
     width:3px;
     height: 12px;
     background-color: #e92322;
+    
 }
 /* 产品内容 图片 */
 .a_50{
