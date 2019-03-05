@@ -1,0 +1,270 @@
+.jd_layout{
+    width:100%;
+    /* 移动端一般最大宽度和最小宽度 */
+    max-width: 640px;
+    min-width:320px;
+    /* 整个盒子放在页面的中间 */
+    margin:0 auto;
+    background-color: #ccc;
+    position: relative;
+}
+/* 顶部搜索栏 */
+.jd_search{
+    /* 设置宽高 */
+    width:100%;
+    height: 40px;
+    position: fixed;
+    max-width: 640px;
+    /* 设置显示级别 */
+    z-index: 9999;
+    
+    /*
+        由于是fixed定位 参照的是父级元素 
+        即整个浏览器窗口  会发生溢出
+        解决方式：设置maxwidth
+
+        最大宽度是不能继承的
+    */
+    background-color: #e92322;
+    
+
+}
+.jd_searchBox{
+    width: 100%;
+    height: 100%;
+    /* logo与搜索框的距离为5px */
+    padding-left:76px;
+    padding-right:50px;
+    box-sizing: border-box;
+
+}
+.jd_searchBox::before{
+    content:"";
+    width:27px;
+    height:23px;
+    position: absolute;
+    top:7px;
+    left:82px;
+    background-image: url("../image/jd-sprites_c4019063.png");
+    background-position: -56px -105px;
+    background-size: 200px 200px;
+}
+
+.jd_searchBox input{
+    width:100%;
+    /* 设置宽度为100%即父元素的百分百宽度  */
+    height:30px;
+    margin-top:5px;
+    border-radius: 15px;
+    padding-left:30px;
+    font-size:13px;
+    color:#666;
+}
+
+
+.jd_logo{
+    position: absolute;
+    top:4px;
+    left:8px;
+    width:56px;
+    height: 30px;
+    background-image: url("../image/jd-sprites_c4019063.png");
+    /* 美工准备的图会比较大一点（2倍图） */
+    /* background-position: 0px  -108px; */
+    /* 确定背景大小 */
+    background-size: 200px 200px;
+    background-position: 0px -105px;
+      
+}
+.jd_login{
+    position: absolute;
+    top:0;
+    right:0;
+    width:40px;
+    height:40px;
+    line-height: 40px;
+    font-size:14px;
+    color:#fff;
+    
+}
+
+/* 
+    知识点：
+    1 2倍图
+        一个图片可以缩小 但是尽量不要进行放大操作  会对精度有影响 会失真 图片周围有锯齿
+    2 对精灵图的操作
+
+*/
+/* banner部分 */
+.jd_banner{
+    width:100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.jd_bannerImage{
+    width:800%;
+    
+}
+.jd_bannerImage>li{
+    width:12.5%;
+    float: left;
+}
+.jd_bannerImage >li img{
+    width:100%;
+    display: block;
+}
+.bannerIndicator{
+    width:128px;
+    height:10px;
+    position: absolute;
+    bottom:5px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.bannerIndicator > li{
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    border:1px solid #fff;
+    float: left;
+    margin-left:10px;
+}
+/* 
+知识点：轮播图 
+1.样式制作
+2.脚本编写
+
+*/
+/* 导航栏 */
+.jd_nav{
+    width:100%;
+    padding:10px 0;
+    background-color: #fff;
+}
+.jd_nav ul li{
+    float: left;
+    width:25%;
+    text-align: center;
+}
+
+.jd_nav li img{
+    width:40px;
+    
+}
+.jd_nav li p{
+    line-height:25px;
+}
+
+/* 
+    知识点：解决图片下出现多出一部分背景
+    image对齐方式跟文本基线对齐
+    解决方式：
+    1.设置为块级元素
+    2.将文本的字体大小设置为0 
+    3.vertical-align：bottom；
+*/
+/* 产品块 */
+.jd_product{
+    width:100%;
+}
+.jd_productBox{
+    width: 100%;
+    margin-top:10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+
+}
+.jd_pTip{
+    width:100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom:1px solid #ccc;
+    
+    color:#666;
+}
+.jd_pTip> h3{
+    position: relative;
+    padding-left:30px;
+}
+.jd_pTip> h3::before{
+    content:'';
+    position: absolute;
+    top:9px;
+    left:-8px;
+    width:3px;
+    height: 12px;
+    background-color: #e92322;
+}
+/* 产品内容 图片 */
+.a_50{
+    width:50%;
+    display: block;
+}
+.a_50 > img{
+    width: 100%;
+    display: block;
+}
+.right>img{
+    height: 100px;
+}
+.b_left{
+    border-left:1px solid #ccc;
+}
+.b_bottom{
+    border-bottom:1px solid #ccc;
+}   
+.b_right{
+    border-right:1px solid #ccc;
+}
+
+/* 秒杀 */
+.jd_sk{
+     
+}
+.jd_sK > .jd_pTip{
+    border-bottom:none;
+}
+.m_left10{
+    margin-left:10px;
+}
+
+.jd_sk > .jd_pTip .jd_sk_text{
+    color:#f02b2b;
+    font-weight:700;
+    font-size:17px;
+}
+.jd_sk > .jd_pTip .jd_sk_time > span{
+    display: inline-block;
+     width:13px;
+     height: 18px;
+     line-height: 18px;
+     color:#fff;
+     background-color: #000;
+     text-align:center;
+}
+.jd_sk > .jd_pTip .jd_sk_time > span:nth-last-of-type(3n){
+    color:#000;
+    background-color: transparent;
+    width:8px;
+}
+.jd_right{
+    margin-right:8px;
+}
+
+.jd_sk .jd_pContent{
+    padding:20px;
+}
+.jd_sk .jd_pContent > ul{
+    width:100%;    
+}
+.jd_sk .jd_pContent > ul > li{
+    width: 33.33%;
+    float:left;
+    text-align:center;
+}
+.jd_sk .jd_pContent > ul > li  img{
+    width:60%;
+    /* 去除文本基线部分 */
+    display: inline-block;
+}

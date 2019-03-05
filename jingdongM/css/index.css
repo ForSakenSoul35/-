@@ -1,0 +1,75 @@
+.jd_layout{
+    width:100%;
+    /* 移动端一般最大宽度和最小宽度 */
+    max-width: 640px;
+    min-width:320px;
+    /* 整个盒子放在页面的中间 */
+    margin:0 auto;
+    height: 1000px;
+    background-color: #ccc;
+    position: relative;
+}
+/* 顶部搜索块 */
+.jd_search{
+    width:100%;
+    height:40px;
+    /* 固定在顶部 */
+    position: fixed;
+    /* 由于是固定定位 相对的是整个窗口 会发生溢出现象 */
+    /* 设置最大宽度 */
+    max-width: 640px;
+    background-color: #e92322;
+
+}
+.jd_logo{
+    position: absolute;
+    top:5px;
+    left:10px;
+    width: 56px;
+    height: 30px;
+    background-image:url("../image/jd-sprites_c4019063.png");
+    background-size: 200px 200px; 
+    background-position:0px -108px;
+    /* 设置背景大小 */
+    
+}
+.jd_searchBox{
+    width:100%;
+    height: 100%;
+    padding-left:76px;
+    padding-right:50px;
+    
+}
+.jd_searchBox>input{
+    width:100%;
+    height: 30px;
+    margin-top:5px;
+    border-radius: 15px;
+    padding-left:30px;
+    color:#666;
+    
+
+}
+/* 使用伪元素添加 放大镜 */
+.jd_searchBox::before{
+    content:'';
+    width:27px;
+    height: 23px;
+    position: absolute;
+    background-image: url("../image/jd-sprites_c4019063.png");
+    background-size: 200px 200px;
+    background-position: -56px -108px;
+    top:9px;
+    left:80px;
+    
+}
+.jd_login{
+    position: absolute;
+    top:0;
+    right:0;
+    width:40px;
+    height: 40px;
+    line-height: 40px;
+    color:#fff;
+}
+

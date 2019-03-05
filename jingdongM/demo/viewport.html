@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta  name="viewport" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script> -->
+    <meta  name="viewport" content="device-width,initial-scale=1.0 ,user-scale=0"  >
+</head>
+<body>
+    <!-- 
+        viewport 视觉窗口 简称视口
+        虚拟的容器 
+            在移动设备中 浏览器和网页之间 存在一层虚拟的容器
+            作用：
+                - 用来承载网页的
+                - 只在移动设备才有,默认就存在
+                - 是一层虚拟的容器
+                - 可以设置尺寸
+                - 可以设置缩放
+        使用viewport和流式布局来实现移动端的适配
+        标准化适配要求：
+            网页的宽度和浏览器一致
+            保证网页内容的缩放比和PC端保持一致  视口的缩放比是1.0
+            不允许用户自行缩放 （视口不允许缩放）
+        参数：
+            width 设置视口的参数
+                单位默认是px  特殊的值 device-width 代表当前设备的宽度
+            initial-scale 设置视口的默认的缩放比
+            user-scale 设置视口是否允许用户自行缩放
+                user-scale=0  不允许自行缩放
+                user-scale=1  可以
+                
+            maxinum-scale 
+            mininum-scale
+     -->
+    
+</body>
+<!-- 
+    有些设备的缩放比是0.5 网页的宽度是设备宽度的两倍
+    但是有些设备是0.33333 网页宽度是设备宽度的三倍
+
+    移动端图标图片失真问题
+    提高页面的清晰度和显示细腻度
+    
+    移动设备
+
+    retina屏  高清屏 视网膜屏  把更多的像素点压缩到一块屏幕里
+    1个px屏幕尺寸里有了多个物理像素 相当于把图片放大了  
+    
+ -->
+</html>
+<!-- 
+    视口：用来约束 网站中 最顶级块级元素<html>的 决定了<html>的大小
+        PC端 视口取决于浏览器的大小，以CSS像素作为度量单位
+        获取PC端视口的大小(浏览器的大小)
+            var clientWidth = document.docuemntElement.clientWidth
+            var clientHeight = document.docuemntElement.clientHeight
+            
+        PC端会默认出现滚动条
+        1.确定具体的高度 当超出viewport的值时，默认出现滚动条
+        避免这种情况： 使用百分比宽度
+        但是可能会出现内容宽度大于盒子宽度  内容会溢出 应该设置
+        移动端 ：
+        viewport 不同屏幕viewport 不一样
+
+        布局视口： 
+            每个屏幕提供了用来布局的大小  以CSS像素作为计量单位的
+            默认的视口大小
+        理想视口：
+            当前屏幕大小
+            window.screen.width
+            window.screen.height
+        系统会为每个屏幕提供一定的viewport 用来布局 
+        但是这个大小跟屏幕大小其实是不一致的 
+        如果用这个viewport 来布局 整个网页会被缩放 或者可能出现滚动条
+
+        所以需要重置viewport
+
+        屏幕适配要求：
+            避免滚动条 并且正常显示 避免缩放
+        <mata name= "viewport " content = "">
+        
+
+
+ -->
+ <!-- 
+    对viewport的设置建议写在已有的meta标签之后
+    <meta name="viewport" content="width = device-width,initial-scale=1.0">
+    一定要有的属性  width user-scalable
+    initial-scale =  理想视口/布局视口
+    initial-scale 初始化缩放比例
+    user-scalable：yes/no 是否允许用户缩放（默认值为yes）
+    name: 说明当前meta标签的作用
+    属性 只有移动端能用
+    两个属性 效果一致的
+    尽量两个都要写 避免兼容性问题
+
+    避免滚动： 设置百分比宽度
+
+
+  -->
+
+  <!-- 
+    响应式
+
+
+   -->
