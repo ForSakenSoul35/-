@@ -186,6 +186,8 @@ function bannerEffect(){
     // 实现手动轮播
     // 1.记录手指的起始位置
     var startX,moveX,distanceX;
+    // 标记当前过渡效果是否执行完毕
+    var isEnd = true;
     // 为图片添加触摸开始事件
     imgBox.addEventListener("touchstart",function(e){
         // 清除定时器;
@@ -195,9 +197,8 @@ function bannerEffect(){
     });
     // 为图片添加触摸滑动事件
     imgBox.addEventListener("touchmove",function(e){
-        
-
-        // 记录手指在滑动过程中的位置
+        if(isEnd === true){
+             // 记录手指在滑动过程中的位置
         moveX = e.targetTouches[0].clientX;
         distanceX= moveX- startX;
         // 为了保证效果 清除可能存在的过渡效果
@@ -205,13 +206,16 @@ function bannerEffect(){
         // 实现元素的偏移
         // 注意:滑动偏移应该是相对现在位置进行的偏移 而不是相对原始位置 所以要加上index*bannerWidth
         imgBox.style.left = (-index*bannerWidth + distanceX) + "px";
+        }
+
+       
     });
     // 为图片添加触摸结束事件
     imgBox.addEventListener("touchend",function(e){
         // 获取当前滑动的距离,判断距离是否超过指定的范围  100px
         if(Math.abs(distanceX) > 100 ){
-            console.log(1);
-            // 判断滑动的方向
+            
+            // 判断滑动的方向`
             if( distanceX > 0 ){
                 index--;
             }else{
@@ -224,11 +228,17 @@ function bannerEffect(){
             imgBox.style.transition = "left 0.5s ease-in-out";
             imgBox.style.left = -index*bannerWidth+"px";  
         }
+        // 将上次move的值进行重置:
+        startX = 0;
+        moveX = 0;
+        distanceX = 0;
         // 重新开始定时器
         startTime();
         // webkitTransitionEnd :可以监听当前元素的过渡效果执行完毕,当一个元素的过渡效果执行完毕时 会触发这个事件
         //设置没有过渡效果
         imgBox.addEventListener("webkitTransitionEnd",function(){
+            // 松开手指,标记当前过渡效果正在执行
+            isEnd = false;
             // 如果到了最后一张 回到索引1
             // 如果到了第一张,回到索引count-2
             if(index == count-1){
@@ -245,6 +255,14 @@ function bannerEffect(){
                 imgBox.style.left = - index*bannerWidth +"px";
 
             }
+            // 
+            setTimeout(function(){
+                isEnd = true;
+                // 清除之前的定时器
+                clearInterval(timeId2);
+                // 重新开始定时器
+                startTime();
+            },500)        
         })
     });
     // 2.记录手指在滑动过程中的位置，计算出相对于初始位置的偏移值 通过left样式实现图片的偏移
