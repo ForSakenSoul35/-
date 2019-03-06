@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script> -->
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 拖拽操作  drag操作 先记录初始位置  再记录移动中位置 再计算差值  最后通过transform
+        var startX,startY,moveX,moveY,distanceX,distanceY;
+        var div = document.querySelector("div");
+        // 触摸开始
+        div.addEventListener("touchstart",function(e){
+            
+            startX = e.targetTouches[0].clientX;
+            startY = e.targetTouches[0].clientY;
+        });
+        div.addEventListener("touchmove",function(e){
+            moveX = e.targetTouches[0].clientX;
+            moveY = e.targetTouches[0].clientY;
+            console.log(moveX);
+            // 计算差异
+            distanceX = moveX- startX;
+            distanceY = moveY-startY;
+            // 设置偏移
+            div.style.transform = "translate("+distanceX+"px,"+distanceY+"px)";
+        })
+    </script>
+</body>
+</html>

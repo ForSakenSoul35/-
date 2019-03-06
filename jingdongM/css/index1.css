@@ -102,14 +102,30 @@
     position: relative;
 }
 
-.jd_bannerImage{
+/* .jd_bannerImage{
     width:800%;
     
-}
+} 
 .jd_bannerImage>li{
     width:12.5%;
     float: left;
 }
+*/
+/* 修改以达到轮播图 */
+.jd_bannerImage{
+    width:1000%;
+    /* 1.向左偏移10%  参照自身  自身宽度已经是640*10了*/
+    /* transform: translateX(-10%); 那相对自身的10%就是640px  */
+    /* 2. 使用定位（不能使用绝对定位  由于banne高度是由内容撑开的 绝对定位会让内容失去高度 ）*/
+    position: relative;
+    left:-100%;
+    /* 偏移值参照父容器 */
+}
+.jd_bannerImage>li{
+    width:10%;
+    float: left;
+}
+
 .jd_bannerImage >li img{
     width:100%;
     display: block;
